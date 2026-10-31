@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             x:Class="ArkanMaui.LoginPage.Login"
+             Title="login">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Gold">#C9A55C</Color>
+            <Color x:Key="Maroon">#6B1F37</Color>
+            <Color x:Key="FieldBg">#26FFFFFF</Color>
+            
+            <x:String x:Key="TitleFont">CormorantRegular</x:String>
+            <x:String x:Key="BodyFont">OutfitRegular</x:String>
+
+            <Style x:Key="FieldBorder" TargetType="Border">
+                <Setter Property="Stroke" Value="{StaticResource Gold}" />
+                <Setter Property="StrokeThickness" Value="1" />
+                <Setter Property="StrokeShape" Value="RoundRectangle 12" />
+                <Setter Property="BackgroundColor" Value="{StaticResource FieldBg}" />
+                <Setter Property="HeightRequest" Value="42" />
+                <Setter Property="Padding" Value="10,0" />
+            </Style>
+
+            <Style x:Key="FieldEntry" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="PlaceholderColor" Value="#9A9A9A" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Border Margin="10"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 40"
+            BackgroundColor="#2B2B2D">
+
+        <Grid>
+
+            <Image Source="bg.png"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill" />
+
+            <ScrollView VerticalScrollBarVisibility="Never">
+                <VerticalStackLayout Padding="32,28,32,40" Spacing="12">
+
+                    
+                    <Image Source="logo1.png"
+                           HeightRequest="90"
+                           Aspect="AspectFit"
+                           HorizontalOptions="Center" />
+
+                    <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                        <Label Text="LOGIN"
+                               FontFamily="{StaticResource TitleFont}"
+                               FontSize="38"
+                               TextColor="#F3EBDD"
+                               HorizontalOptions="Center" />
+                        <BoxView HeightRequest="1.5"
+                                 WidthRequest="85"
+                                 Color="{StaticResource Gold}"
+                                 HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <!-- User Name -->
+                    <VerticalStackLayout Spacing="4" Margin="0,8,0,0">
+                        <Label Style="{StaticResource FieldLabel}" FontFamily="{StaticResource BodyFont}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="User Name" />
+                                    <Span Text="*" TextColor="Red" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                <Image Source="person.png" WidthRequest="18" HeightRequest="18" />
+                                <Entry x:Name="EmailEntry"
+                                       Grid.Column="1"
+                                       Placeholder="Enter your email"
+                                       Keyboard="Email"
+                                       Style="{StaticResource FieldEntry}" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Password -->
+                    <VerticalStackLayout Spacing="4">
+                        <Label Style="{StaticResource FieldLabel}" FontFamily="{StaticResource BodyFont}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Password" />
+                                    <Span Text="*" TextColor="Red" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FieldBorder}">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                <Image Source="passlock.png" WidthRequest="18" HeightRequest="18" />
+                                <Entry x:Name="PasswordEntry"
+                                       Grid.Column="1"
+                                       Placeholder="Enter your password"
+                                       IsPassword="True"
+                                       Style="{StaticResource FieldEntry}" />
+                                <ImageButton x:Name="TogglePasswordButton"
+                                             Grid.Column="2"
+                                             Source="eye.png"
+                                             WidthRequest="18"
+                                             HeightRequest="18"
+                                             BackgroundColor="Transparent"
+                                             Clicked="OnTogglePasswordClicked" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Border HeightRequest="42"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12"
+                            Margin="0,6,0,0">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#E8D3A0" Offset="0.0" />
+                                <GradientStop Color="#C9A55C" Offset="0.5" />
+                                <GradientStop Color="#E3CB92" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGoogleTapped" />
+                        </Border.GestureRecognizers>
+                        <HorizontalStackLayout HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Spacing="10">
+                            <Image Source="icon_google.png" WidthRequest="18" HeightRequest="18" />
+                            <Label Text="Continue With Google"
+                                   FontFamily="{StaticResource BodyFont}"
+                                   FontAttributes="Bold"
+                                   FontSize="13"
+                                   TextColor="{StaticResource Maroon}"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+                    <Border Style="{StaticResource FieldBorder}"
+                            BackgroundColor="Transparent"
+                            Padding="0">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGuestTapped" />
+                        </Border.GestureRecognizers>
+                        <Label Text="Continue as a Guest"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="13"
+                               TextColor="{StaticResource Gold}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Border>
+
+                    <Grid ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center">
+                        <CheckBox x:Name="RememberCheck"
+                                  IsChecked="True"
+                                  Color="{StaticResource Gold}"
+                                  Margin="-6,0,0,0" />
+                        <Label Grid.Column="1"
+                               Text="Remember me"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="12"
+                               TextColor="White"
+                               VerticalOptions="Center"
+                               Margin="0,0,0,0" />
+                        <Label Grid.Column="2"
+                               Text="Forgot Password ?"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="12"
+                               TextColor="{StaticResource Gold}"
+                               TextDecorations="Underline"
+                               VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <Button Text="LOGIN"
+                            FontFamily="{StaticResource BodyFont}"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            TextColor="White"
+                            BackgroundColor="{StaticResource Maroon}"
+                            BorderColor="{StaticResource Gold}"
+                            BorderWidth="1"
+                            CornerRadius="20"
+                            HeightRequest="42"
+                            Clicked="OnLoginClicked" />
+
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <BoxView WidthRequest="30" HeightRequest="1" Color="{StaticResource Gold}" VerticalOptions="Center" />
+                        <Label Text="or"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="12"
+                               TextColor="{StaticResource Gold}" />
+                        <BoxView WidthRequest="30" HeightRequest="1" Color="{StaticResource Gold}" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <VerticalStackLayout Spacing="14" HorizontalOptions="Center">
+                        <Label Text="Don't have an account ?"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="12"
+                               TextColor="{StaticResource Gold}"
+                               TextDecorations="Underline"
+                               HorizontalOptions="Center" />
+                        <Label Text="Sign Up"
+                               FontFamily="{StaticResource BodyFont}"
+                               FontSize="13"
+                               TextColor="#E6D5B0"
+                               HorizontalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSignUpTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Border>
+</ContentPage>
