@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ArkanMaui.Views.Auth.RegisterPage"
+    Shell.NavBarIsVisible="False"
+    FlowDirection="LeftToRight"
+    BackgroundColor="{StaticResource ArkanDark}">
+
+    <ContentPage.Resources>
+
+        
+        <Color x:Key="ArkanRequired">#E53935</Color>
+        <Color x:Key="ArkanWine">#6B1F38</Color>
+        <Color x:Key="ArkanSoft">#D9D2C5</Color>
+        <Color x:Key="ArkanUploadFill">#3A3A3A</Color>
+        <Color x:Key="ArkanUploadStroke">#C5A15B</Color>
+
+        
+        <Style x:Key="FormLabel" TargetType="Label" BasedOn="{StaticResource ArkanFieldLabel}">
+            <Setter Property="FontSize" Value="9" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+        </Style>
+
+        
+        <Style x:Key="FormBorder" TargetType="Border" BasedOn="{StaticResource ArkanEntryBorder}">
+            <Setter Property="HeightRequest" Value="34" />
+            <Setter Property="Padding" Value="8,0" />
+        </Style>
+
+        
+        <Style x:Key="FormEntry" TargetType="Entry">
+            <Setter Property="HeightRequest" Value="32" />
+            <Setter Property="MinimumHeightRequest" Value="0" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource ArkanPlaceholder}" />
+            <Setter Property="TextColor" Value="{StaticResource ArkanLight}" />
+            <Setter Property="FontFamily" Value="JakartaRegular" />
+            <Setter Property="FontSize" Value="9" />
+        </Style>
+
+        
+        <Style x:Key="FormIcon" TargetType="Image">
+            <Setter Property="WidthRequest" Value="13" />
+            <Setter Property="HeightRequest" Value="13" />
+            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+
+    </ContentPage.Resources>
+
+
+    <Grid RowDefinitions="41*,59*">
+
+        <Image
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Source="background.png"
+            Aspect="AspectFill" />
+
+        
+        <Grid
+            Grid.Row="1"
+            ZIndex="3"
+            ColumnDefinitions="17*,66*,17*">
+
+            <VerticalStackLayout
+                Grid.Column="1"
+                Spacing="3"
+                Padding="0,0,0,4"
+                VerticalOptions="Fill">
+
+                <!-- LOGO -->
+
+                <Image
+                    Source="logo.png"
+                    HeightRequest="34"
+                    Margin="0,6,0,0"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center" />
+
+                <!-- REGISTER TITLE -->
+
+                <Label
+                    Text="REGISTER"
+                    FontFamily="CinzelRegular"
+                    FontSize="18"
+                    CharacterSpacing="1"
+                    TextColor="{StaticResource ArkanLight}"
+                    HorizontalOptions="Center" />
+
+                <!-- FIRST NAME & LAST NAME -->
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+
+                    <VerticalStackLayout Grid.Column="0" Spacing="1">
+                        <Label Style="{StaticResource FormLabel}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="First Name" />
+                                    <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FormBorder}">
+                            <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                                <Image Source="icon_user.png" Style="{StaticResource FormIcon}" />
+                                <Entry Grid.Column="1" Placeholder="First Name" Style="{StaticResource FormEntry}" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="1">
+                        <Label Style="{StaticResource FormLabel}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Last Name" />
+                                    <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FormBorder}">
+                            <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                                <Image Source="icon_user.png" Style="{StaticResource FormIcon}" />
+                                <Entry Grid.Column="1" Placeholder="Last Name" Style="{StaticResource FormEntry}" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <!-- EMAIL & PHONE -->
+
+                <Grid ColumnDefinitions="1.15*,1*" ColumnSpacing="8">
+
+                    <VerticalStackLayout Grid.Column="0" Spacing="1">
+                        <Label Style="{StaticResource FormLabel}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Email" />
+                                    <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FormBorder}">
+                            <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                                <Image Source="icon_email.png" Style="{StaticResource FormIcon}" />
+                                <Entry Grid.Column="1" Placeholder="name@example.com" Keyboard="Email"
+                                       Style="{StaticResource FormEntry}" FontSize="8" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1" Spacing="1">
+                        <Label Style="{StaticResource FormLabel}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Phone" />
+                                    <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Border Style="{StaticResource FormBorder}">
+                            <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                                <Image Source="icon_phone.png" Style="{StaticResource FormIcon}" />
+                                <Entry Grid.Column="1" Placeholder="+20 XXX XXX XXXX" Keyboard="Telephone"
+                                       Style="{StaticResource FormEntry}" FontSize="8" />
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <!-- PASSWORD -->
+
+                <VerticalStackLayout Spacing="1">
+                    <Label Style="{StaticResource FormLabel}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Password" />
+                                <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Border Style="{StaticResource FormBorder}">
+                        <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                            <Image Source="icon_lock.png" Style="{StaticResource FormIcon}" />
+                            <Entry Grid.Column="1" Placeholder="Create Your Password" IsPassword="True"
+                                   Style="{StaticResource FormEntry}" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- CONFIRM PASSWORD -->
+
+                <VerticalStackLayout Spacing="1">
+                    <Label Style="{StaticResource FormLabel}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Confirm Password" />
+                                <Span Text=" *" TextColor="{StaticResource ArkanRequired}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Border Style="{StaticResource FormBorder}">
+                        <Grid ColumnDefinitions="16,*" ColumnSpacing="4">
+                            <Image Source="icon_lock.png" Style="{StaticResource FormIcon}" />
+                            <Entry Grid.Column="1" Placeholder="Rewrite the password" IsPassword="True"
+                                   Style="{StaticResource FormEntry}" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- ================= PROFILE IMAGE UPLOAD ================= -->
+
+                <VerticalStackLayout Spacing="1">
+
+                    <Label Style="{StaticResource FormLabel}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Profile Image " />
+                                <Span Text="(Optional)" TextColor="{StaticResource ArkanSecondary}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+                    <Border
+                        BackgroundColor="{StaticResource ArkanUploadFill}"
+                        Stroke="{StaticResource ArkanUploadStroke}"
+                        StrokeThickness="1"
+                        StrokeDashArray="2,2"
+                        StrokeShape="RoundRectangle 10"
+                        HeightRequest="44"
+                        Padding="8,0">
+
+                        <Grid
+                            ColumnDefinitions="Auto,*,Auto"
+                            ColumnSpacing="6"
+                            VerticalOptions="Center">
+
+
+                            <Image
+                                Grid.Column="0"
+                                Source="icon_upload.png"
+                                WidthRequest="28"
+                                HeightRequest="28"
+                                Aspect="AspectFit"
+                                VerticalOptions="Center" />
+
+
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center">
+
+                                <Label
+                                    Text="Drag &amp; Drop or"
+                                    TextColor="{StaticResource ArkanSoft}"
+                                    FontFamily="JakartaMedium"
+                                    FontSize="9"
+                                    HorizontalTextAlignment="Center" />
+
+                                <Label
+                                    Text="JPG , PNG up to 5MB"
+                                    TextColor="{StaticResource ArkanPlaceholder}"
+                                    FontFamily="JakartaRegular"
+                                    FontSize="6"
+                                    HorizontalTextAlignment="Center" />
+                            </VerticalStackLayout>
+
+
+                            <Button
+                                Grid.Column="2"
+                                Text="Upload"
+                                TextColor="#000000"
+                                FontFamily="ZenAntique"
+                                FontSize="10"
+                                WidthRequest="48"
+                                HeightRequest="20"
+                                MinimumHeightRequest="0"
+                                MinimumWidthRequest="0"
+                                Padding="0"
+                                CornerRadius="10"
+                                BorderColor="#C5A15B"
+                                BorderWidth="1"
+                                VerticalOptions="Center"
+                                HorizontalOptions="End">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                        <GradientStop Color="#C5A15B" Offset="0.0" />
+                                        <GradientStop Color="#FFFFFF" Offset="0.5" />
+                                        <GradientStop Color="#C5A15B" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+
+                        </Grid>
+                    </Border>
+
+                </VerticalStackLayout>
+
+                <Grid
+                    ColumnDefinitions="Auto,*"
+                    ColumnSpacing="0"
+                    HeightRequest="30"
+                    HorizontalOptions="Center">
+
+                    <CheckBox
+                        Grid.Column="0"
+                        Color="{StaticResource ArkanSecondary}"
+                        VerticalOptions="Center"
+                        Scale="0.7"
+                        Margin="0,0,-4,0" />
+
+                    <Label
+                        Grid.Column="1"
+                        FontFamily="JakartaRegular"
+                        FontSize="8"
+                        TextColor="{StaticResource ArkanSoft}"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="I agree to the " />
+                                <Span Text="Terms &amp; Conditions"
+                                      TextColor="{StaticResource ArkanSecondary}"
+                                      TextDecorations="Underline" />
+                                <Span Text=" and&#10;" />
+                                <Span Text="Privacy Policy"
+                                      TextColor="{StaticResource ArkanSecondary}"
+                                      TextDecorations="Underline" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </Grid>
+
+                <!-- ================= REGISTER BUTTON ================= -->
+
+                <Button
+                    Text="REGISTER"
+                    Style="{StaticResource ArkanPrimaryButton}"
+                    BackgroundColor="{StaticResource ArkanWine}"
+                    TextColor="{StaticResource ArkanLight}"
+                    BorderColor="{StaticResource ArkanSecondary}"
+                    BorderWidth="1"
+                    CornerRadius="18"
+                    HeightRequest="36"
+                    MinimumHeightRequest="0"
+                    Padding="0"
+                    FontSize="11" />
+
+                <!-- ================= OR DIVIDER ================= -->
+
+                <HorizontalStackLayout
+                    Spacing="8"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+
+                    <BoxView WidthRequest="26" HeightRequest="1" Color="{StaticResource ArkanSecondary}" VerticalOptions="Center" />
+
+                    <Label
+                        Text="or"
+                        TextColor="{StaticResource ArkanSoft}"
+                        FontFamily="JakartaRegular"
+                        FontSize="9" />
+
+                    <BoxView WidthRequest="26" HeightRequest="1" Color="{StaticResource ArkanSecondary}" VerticalOptions="Center" />
+
+                </HorizontalStackLayout>
+
+                <!-- ================= LOGIN NAVIGATION ================= -->
+
+                <Label
+                    Text="Already have an account ?"
+                    TextColor="{StaticResource ArkanSecondary}"
+                    TextDecorations="Underline"
+                    FontFamily="JakartaRegular"
+                    FontSize="9"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    Text="Sign Up"
+                    TextColor="{StaticResource ArkanSecondary}"
+                    FontFamily="JakartaRegular"
+                    FontSize="9"
+                    HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

@@ -1,17 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ArkanMaui.Views.Auth;
 
-namespace ArkanMaui
+namespace ArkanMaui;
+
+public partial class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new AppShell());
-        }
+    protected override Window CreateWindow(
+        IActivationState? activationState)
+    {
+        return new Window(new RegisterPage());
     }
 }

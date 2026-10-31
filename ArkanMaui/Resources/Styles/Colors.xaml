@@ -27,6 +27,19 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <!-- Brand Colors -->
+    <Color x:Key="ArkanPrimary">#641F35</Color>
+    <Color x:Key="ArkanSecondary">#C5A15B</Color>
+
+    <!-- Neutral Colors -->
+    <Color x:Key="ArkanDark">#2B2D2E</Color>
+    <Color x:Key="ArkanLight">#F7F6F4</Color>
+
+    <!-- Supporting Colors -->
+    <Color x:Key="ArkanInputBackground">#353637</Color>
+    <Color x:Key="ArkanPlaceholder">#B8B5B0</Color>
+    <Color x:Key="ArkanBorder">#8E7955</Color>
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
