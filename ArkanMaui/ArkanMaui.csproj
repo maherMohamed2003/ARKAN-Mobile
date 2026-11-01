@@ -76,6 +76,7 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\Auth\RegisterPage.xaml">
+	  <MauiXaml Update="LoginPage\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
