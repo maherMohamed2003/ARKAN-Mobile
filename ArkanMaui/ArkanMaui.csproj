@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<RuntimeIdentifiers Condition="'$(TargetFramework)'=='net10.0-android'">android-arm;android-arm64;android-x64</RuntimeIdentifiers>
@@ -71,14 +71,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Views\Auth\RegisterPage.xaml">
-	  <MauiXaml Update="LoginPage\Login.xaml">
-	    <Generator>MSBuild:Compile</Generator>
+	  <MauiXaml Update="Views\Auth\RegisterPage\RegisterPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+		
+		
+	  <MauiXaml Update="Views\Auth\LoginPage.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+		
+		
 	</ItemGroup>
 
 </Project>

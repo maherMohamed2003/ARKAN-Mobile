@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArkanMaui.DTOs
+namespace ArkanMaui.ViewModels.DTOs.LoginDTOs
 {
     public class LoginResponseDTO
     {
