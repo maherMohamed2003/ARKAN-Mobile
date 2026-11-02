@@ -48,8 +48,8 @@ public partial class Login : ContentPage
                 {
                     PropertyNameCaseInsensitive = true
                 });
-                 await SecureStorage.SetAsync("token", loginResponse.value.accessToken);
-                // لو RememberCheck.IsChecked احفظ الإيميل برضو
+                await SecureStorage.SetAsync("token", loginResponse.value.accessToken);
+
                 await DisplayAlert("Success", "Welcome Back! \n"+loginResponse.value.fullName, "OK");
             }
             else
