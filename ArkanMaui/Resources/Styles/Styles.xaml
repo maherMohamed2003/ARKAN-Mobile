@@ -21,6 +21,70 @@
     <Style TargetType="BoxView">
         <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
+    <!-- Input Style -->
+    <Style x:Key="ArkanEntryBorder"
+           TargetType="Border">
+
+        <Setter Property="BackgroundColor"
+                Value="{StaticResource ArkanInputBackground}" />
+
+        <Setter Property="Stroke"
+                Value="{StaticResource ArkanBorder}" />
+
+        <Setter Property="StrokeThickness"
+                Value="1" />
+
+        <Setter Property="Padding"
+                Value="8,0" />
+        <Setter Property="HeightRequest"
+                Value="38" />
+
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="9" />
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <!-- Field Label -->
+    <Style x:Key="ArkanFieldLabel"
+           TargetType="Label">
+
+        <Setter Property="FontFamily"
+                Value="JakartaRegular" />
+
+        <Setter Property="FontSize"
+                Value="12" />
+
+        <Setter Property="TextColor"
+                Value="{StaticResource ArkanLight}" />
+
+    </Style>
+
+    <!-- Register Button -->
+    <Style x:Key="ArkanPrimaryButton"
+           TargetType="Button">
+
+        <Setter Property="BackgroundColor"
+                Value="{StaticResource ArkanPrimary}" />
+
+        <Setter Property="TextColor"
+                Value="{StaticResource ArkanLight}" />
+
+        <Setter Property="FontFamily"
+                Value="JakartaSemiBold" />
+
+        <Setter Property="FontSize"
+                Value="12" />
+
+        <Setter Property="CornerRadius"
+                Value="20" />
+
+        <Setter Property="HeightRequest"
+                Value="42" />
+
+    </Style>
 
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkText}}" />
