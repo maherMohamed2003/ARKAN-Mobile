@@ -73,7 +73,10 @@ public partial class Login : ContentPage
 
     private async void OnGoogleTapped(object sender, TappedEventArgs e) { }
     private async void OnGuestTapped(object sender, TappedEventArgs e) { }
-    private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) { }
+    private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) 
+    { 
+        await Navigation.PushAsync(new RestoreAccount());
+    }
     private async void OnSignUpTapped(object sender, TappedEventArgs e)
     {
         await Navigation.PushAsync(new RegisterPage());
