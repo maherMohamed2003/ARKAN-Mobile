@@ -1,4 +1,5 @@
 using ArkanMaui.ViewModels.DTOs.LoginDTOs;
+using ArkanMaui.Views.Auth;
 using System.Text;
 using System.Text.Json;
 
@@ -8,7 +9,6 @@ public partial class Login : ContentPage
 {
     private static readonly HttpClient _client = new() { Timeout = TimeSpan.FromSeconds(20) };
     private const string LoginUrl = "http://arkanteam.runasp.net/api/Auth/Login";
-    private int passcheck = 0;
     public Login()
     {
         InitializeComponent();
@@ -48,13 +48,13 @@ public partial class Login : ContentPage
                 {
                     PropertyNameCaseInsensitive = true
                 });
-                 await SecureStorage.SetAsync("token", loginResponse.value.accessToken);
-                // لو RememberCheck.IsChecked احفظ الإيميل برضو
-                await DisplayAlert("Success", "Welcome Back! \n"+loginResponse.value.fullName, "OK");
+                await SecureStorage.SetAsync("token", loginResponse.value.accessToken);
+
+                await DisplayAlert("Success", "Welcome Back! \n" + loginResponse.value.fullName, "OK");
             }
             else
             {
-                await DisplayAlert("Error", result, "OK");
+                await DisplayAlert("Error", "Invaild Email Or Password", "OK");
             }
         }
         catch (TaskCanceledException)
@@ -74,5 +74,8 @@ public partial class Login : ContentPage
     private async void OnGoogleTapped(object sender, TappedEventArgs e) { }
     private async void OnGuestTapped(object sender, TappedEventArgs e) { }
     private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) { }
-    private async void OnSignUpTapped(object sender, TappedEventArgs e) { }
+    private async void OnSignUpTapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new RegisterPage());
+    }
 }
