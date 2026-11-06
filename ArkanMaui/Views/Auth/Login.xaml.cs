@@ -1,4 +1,4 @@
-using ArkanMaui.DTOs;
+using ArkanMaui.ViewModels.DTOs.LoginDTOs;
 using ArkanMaui.Views.Auth;
 using System.Text;
 using System.Text.Json;
@@ -50,7 +50,7 @@ public partial class Login : ContentPage
                 });
                 await SecureStorage.SetAsync("token", loginResponse.value.accessToken);
 
-                await DisplayAlert("Success", "Welcome Back! \n"+loginResponse.value.fullName, "OK");
+                await DisplayAlert("Success", "Welcome Back! \n" + loginResponse.value.fullName, "OK");
             }
             else
             {
@@ -73,9 +73,12 @@ public partial class Login : ContentPage
 
     private async void OnGoogleTapped(object sender, TappedEventArgs e) { }
     private async void OnGuestTapped(object sender, TappedEventArgs e) { }
-    private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) { }
-    private async void OnSignUpTapped(object sender, TappedEventArgs e) 
+    private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) 
+    { 
+        await Navigation.PushAsync(new RestoreAccount());
+    }
+    private async void OnSignUpTapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PushAsync(new Register());
+        await Navigation.PushAsync(new RegisterPage());
     }
 }

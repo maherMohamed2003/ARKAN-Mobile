@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="ArkanMaui/ArkanMaui.csproj" />
+  <Project Path="ArkanMaui/ArkanMaui.csproj">
+    <BuildType Project="Release" />
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
