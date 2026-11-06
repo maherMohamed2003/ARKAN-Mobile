@@ -13,8 +13,8 @@ public partial class RestoreAccount : ContentPage
 
     public RestoreAccount()
 	{
-		InitializeComponent();
-	}
+        InitializeComponent();
+    }
     private async void OnBackTapped(object sender, TappedEventArgs e)
     {
         await Navigation.PopAsync();
@@ -51,13 +51,13 @@ public partial class RestoreAccount : ContentPage
             {
                 var value = restoreResponse.value;
 
-                // افتحي صفحة اختيار الطريقة (Telegram / WhatsApp / Gmail)
+                // افتح صفحة اختيار الطريقة (Telegram / WhatsApp / Gmail)
                 // await Navigation.PushAsync(new RestoreMethodsPage(value.UserId, value.RestoreMethodResponseDTOs));
 
                 // مؤقتًا لحد ما نعمل الصفحة:
-                var methods = string.Join("\n", value.RestoreMethodResponseDTOs
-                    .Select(m => $"{m.MethodName}: {m.MethodTarget}"));
-                await DisplayAlert("Choose a method", methods, "OK");
+                //var methods = string.Join("\n", value.RestoreMethodResponseDTOs
+                //    .Select(m => $"{m.MethodName}: {m.MethodTarget}"));
+                //await DisplayAlert("Choose a method", methods, "OK");
             }
             else
             {

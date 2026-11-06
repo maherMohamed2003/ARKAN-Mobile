@@ -6,7 +6,7 @@
              BackgroundColor="#2B2B2D"
              FlowDirection="LeftToRight"
              x:Class="ArkanMaui.Views.Auth.RestoreAccount"
-             Title="restore account">
+             Title="restore account" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -59,28 +59,34 @@
         <ScrollView VerticalScrollBarVisibility="Never">
             <VerticalStackLayout Padding="24,6,24,24" Spacing="6">
 
-                
+
                 <Image Source="logo1.png"
                        HeightRequest="50"
                        Aspect="AspectFit"
                        HorizontalOptions="Center" />
 
-                
-                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
-                    <Label Text="RESTORE ACCOUNT"
-                           FontFamily="CinzelRegular"
-                           FontSize="28"
-                           TextColor="#F3EBDD"
-                           HorizontalOptions="Center" />
-                    <BoxView HeightRequest="1.5"
-                             WidthRequest="85"
-                             Color="{StaticResource Gold}"
-                             HorizontalOptions="Center" />
+
+                <VerticalStackLayout 
+                    Spacing="2" 
+                    HorizontalOptions="Center">
+
+                    <Label
+                        Text="RESTORE ACCOUNT"
+                        FontFamily="CinzelRegular"
+                        FontSize="25"
+                        TextColor="#F3EBDD"
+                        HorizontalOptions="Center" />
+
+                    <BoxView 
+                        HeightRequest="1.5"
+                        WidthRequest="85"
+                        Color="{StaticResource Gold}"
+                        HorizontalOptions="Center" />
                 </VerticalStackLayout>
 
                 <!-- DESCRIPTION -->
                 <Label Text="Enter your email here that belongs to &#10;        your account."
-                       FontFamily="{StaticResource BodyFont}"
+                       FontFamily="PlusJakartaSans"
                        FontSize="13"
                        TextColor="{StaticResource Gold}"
                        HorizontalTextAlignment="Center"
@@ -109,7 +115,7 @@
                                 Source="icon_email.png" 
                                 WidthRequest="18" 
                                 HeightRequest="18" 
-                                VerticalOptions="Center" /> 
+                                VerticalOptions="Center" />
                             <Entry 
                                 x:Name="EmailEntry"
                                 Grid.Column="1"
@@ -134,7 +140,7 @@
                         MinimumHeightRequest="0"
                         Padding="0"
                         Margin="0,8,0,0"
-                        Clicked="OnContinueClicked" />
+                        Clicked="InitializeComponent();" />
 
                 <!-- BACK -->
                 <HorizontalStackLayout 
@@ -142,17 +148,17 @@
                     Spacing="6"
                     Margin="0,6,0,0"
                     Padding="0,4">
-                    
+
                     <HorizontalStackLayout.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackTapped" />
                     </HorizontalStackLayout.GestureRecognizers>
-                    
+
                     <Label 
                         Text="←"
                         FontSize="14"
                         TextColor="White"
                         VerticalOptions="Center" />
-                    
+
                     <Label 
                         Text="Back"
                         FontFamily="PlusJakartaSans"
