@@ -13,7 +13,7 @@ namespace ArkanMaui
             IActivationState? activationState)
         {
             return new Window(
-                new NavigationPage(new Register())
+                new NavigationPage(new RegisterPage())
             );
         }
     }
