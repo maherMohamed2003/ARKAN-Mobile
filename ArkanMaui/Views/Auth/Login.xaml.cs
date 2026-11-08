@@ -76,6 +76,6 @@ public partial class Login : ContentPage
     private async void OnForgotPasswordTapped(object sender, TappedEventArgs e) { }
     private async void OnSignUpTapped(object sender, TappedEventArgs e) 
     {
-        await Navigation.PushAsync(new Register());
+        await Navigation.PushAsync(new RegisterPage());
     }
 }
