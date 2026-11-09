@@ -140,7 +140,7 @@
                         MinimumHeightRequest="0"
                         Padding="0"
                         Margin="0,8,0,0"
-                        Clicked="InitializeComponent();" />
+                        Clicked="OnContinueClicked" />
 
                 <!-- BACK -->
                 <HorizontalStackLayout 

@@ -35,7 +35,8 @@ public partial class RestoreAccount : ContentPage
 
         try
         {
-            var json = JsonSerializer.Serialize(new { email });
+            var request = new RestoreAccountRequestDTO { Email = email };
+            var json = JsonSerializer.Serialize(request);
             using var content = new StringContent(json, Encoding.UTF8, "application/json");
             using var response = await _client.PostAsync(RestoreUrl, content);
 
@@ -49,15 +50,10 @@ public partial class RestoreAccount : ContentPage
 
             if (response.IsSuccessStatusCode && restoreResponse?.isSuccess == true && restoreResponse.value != null)
             {
-                var value = restoreResponse.value;
+                var data = restoreResponse.value;
 
-                // افتح صفحة اختيار الطريقة (Telegram / WhatsApp / Gmail)
-                // await Navigation.PushAsync(new RestoreMethodsPage(value.UserId, value.RestoreMethodResponseDTOs));
+                await Navigation.PushAsync(new RestoreMethods(data.UserId, email, data.RestoreMethodResponseDTOs));
 
-                // مؤقتًا لحد ما نعمل الصفحة:
-                //var methods = string.Join("\n", value.RestoreMethodResponseDTOs
-                //    .Select(m => $"{m.MethodName}: {m.MethodTarget}"));
-                //await DisplayAlert("Choose a method", methods, "OK");
             }
             else
             {

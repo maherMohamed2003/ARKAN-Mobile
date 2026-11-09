@@ -90,6 +90,11 @@
 	  </MauiXaml>
 		
 		
+	  <MauiXaml Update="Views\Auth\RestoreMethods.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+		
+		
 	  <MauiXaml Update="Views\Auth\VerifyCode.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
