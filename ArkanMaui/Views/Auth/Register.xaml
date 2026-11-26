@@ -68,14 +68,28 @@
                VerticalOptions="Fill" />
 
 
+        <BoxView InputTransparent="True"
+         HorizontalOptions="Fill"
+         VerticalOptions="Fill">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="#00201F22" Offset="0.0" />
+                    <GradientStop Color="#00201F22" Offset="0.40" />
+                    <GradientStop Color="#D9201F22" Offset="0.68" />
+                    <GradientStop Color="#F2201F22" Offset="1.0" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+
         <!-- MAIN CONTENT -->
 
         <ScrollView VerticalScrollBarVisibility="Never">
 
             <VerticalStackLayout
                 x:Name="FormStack"
-                Spacing="3"
-                Padding="20,4,20,24"
+                Spacing="10"
+                Padding="20,4,20,35"
                 VerticalOptions="Start">
 
                 <!-- LOGO -->
