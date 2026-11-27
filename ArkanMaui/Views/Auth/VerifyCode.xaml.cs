@@ -8,6 +8,8 @@ public partial class VerifyCode : ContentPage
 {
     private static readonly HttpClient _client = new() { Timeout = TimeSpan.FromSeconds(20) };
     private const string RequestCodeUrl = "http://arkanteam.runasp.net/api/Auth/RequestCode";
+    private const string CheckCodeUrl = "http://arkanteam.runasp.net/api/Auth/Check-Code";
+
     private static readonly Color EmptyFill = Color.FromArgb("#2B2D2E");
     private static readonly Color FilledFill = Color.FromArgb("#6B1F37");
     private const int TotalSeconds = 180; // 03:00
@@ -153,8 +155,23 @@ public partial class VerifyCode : ContentPage
             return;
         }
 
-        // هنا نادي endpoint الـ Check-Code بالإيميل والكود (_email و code)
-        // وبعدها افتحي صفحة الباسورد الجديد (Reset-Password)
+        try
+        {
+            var dto = new CheckCodeRequestDTO { code = code, userId = _userId };
+            var json = JsonSerializer.Serialize(dto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(CheckCodeUrl, content);
+            if(!response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Error", "Invalid code. Please try again.", "OK");
+                return;
+            }
+            await Navigation.PushAsync(new ResetPassword(_userId));
+        }
+        catch(Exception)
+        {
+            await DisplayAlert("Error", "Something went wrong. Please try again.", "OK");
+        }
     }
 
     private async void OnBackTapped(object sender, TappedEventArgs e)
